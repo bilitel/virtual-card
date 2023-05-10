@@ -227,6 +227,9 @@ export default {
       } : null
     },
     //Mask Code
+    getIsNumberMasked (index, n) {
+      return index > 4 && index < 14 && this.labels.cardNumber.length > index && n.trim() !== '' && this.isCardNumberMasked
+    },
     changePlaceholder () {
       if (this.cardType === 'amex') {
         this.currentPlaceholder = this.amexCardPlaceholder
