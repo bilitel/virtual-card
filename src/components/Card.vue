@@ -123,7 +123,7 @@ export default {
     isCardNumberMasked: Boolean,
     randomBackgrounds: {
       type: Boolean,
-      default: true
+      default: false
     },
     backgroundImage: [String, Object]
   },
