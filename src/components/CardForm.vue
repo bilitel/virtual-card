@@ -166,7 +166,7 @@ export default {
         cardCvv: 'v-card-cvv'
       },
       minCardYear: new Date().getFullYear(),
-      isCardNumberMasked: true,
+      isCardNumberMasked: false,
       mainCardNumber: this.cardNumber,
       cardNumberMaxLength: 19
     }
@@ -249,7 +249,23 @@ export default {
         this.maskCardNumber()
       }
     },
-    ///Card MASKING
+    maskCardNumber () {
+      this.formData.cardNumberNotMask = this.formData.cardNumber
+      this.mainCardNumber = this.formData.cardNumber
+      let arr = this.formData.cardNumber.split('')
+      arr.forEach((element, index) => {
+        if (index > 4 && index < 14 && element.trim() !== '') {
+          arr[index] = '*'
+        }
+      })
+      this.formData.cardNumber = arr.join('')
+    },
+    unMaskCardNumber () {
+      this.formData.cardNumber = this.mainCardNumber
+    },
+    focusCardNumber () {
+      this.unMaskCardNumber()
+    },
     toggleMask () {
       this.isCardNumberMasked = !this.isCardNumberMasked
       if (this.isCardNumberMasked) {
