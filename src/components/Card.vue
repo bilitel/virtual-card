@@ -100,7 +100,7 @@
       <div class="card-item__cvv">
         <div class="card-item__cvvTitle">CVV</div>
         <div class="card-item__cvvBand">
-  <span v-for="(n, $index) in labels.cardCvv" :key="$index">*</span>
+  <span v-for="(n, $index) in labels.cardCvv" :key="$index">{{n}}</span>
 </div>
 
         <div class="card-item__type">
